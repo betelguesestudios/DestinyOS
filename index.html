@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="icon" href="data:;base64,=">
-    <script src="https://copy.sh/v86/build/libv86.js"></script>
+    <script src="build/libv86.js"></script>
 </head>
 <body>
     <div id="screen_container">
@@ -14,10 +14,10 @@
         window.onload = function() {
             var emulator = new V86({
                 screen_container: document.getElementById("screen_container"),
-                bios: { url: "https://copy.sh/v86/bios/seabios.bin" },
-                vga_bios: { url: "https://copy.sh/v86/bios/vgabios.bin" },
+                bios: { url: "bios/seabios.bin" },
+                vga_bios: { url: "bios/vgabios.bin" },
                 cdrom: { url: "DestinyOS/bin/Debug/net6.0/DestinyOS.iso" },
-                wasm_path: "https://copy.sh/v86/build/v86.wasm",
+                wasm_path: "build/v86.wasm",
                 autostart: true,
             });
         }
