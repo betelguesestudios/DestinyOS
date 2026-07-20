@@ -28,7 +28,7 @@
 00000000000i[USBCTL] Pluggable USB devices
 00000000000i[USBCTL]   floppy mouse tablet keypad keyboard hub disk cdrom
 00000000000i[USBCTL]   printer
-00000000000i[MEM0  ] allocated memory at 00000000026AA040. after alignment, vector=00000000026AB000, block_size = 128K
+00000000000i[MEM0  ] allocated memory at 0000000002654040. after alignment, vector=0000000002655000, block_size = 128K
 00000000000i[MEM0  ] 256.00MB
 00000000000i[MEM0  ] mem block size = 0x00020000, blocks=2048
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('C:\Program Files\Bochs-3.0\BIOS-bochs-latest')
@@ -41,7 +41,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Mon Jul 20 19:19:25   2026 tz=utc (time0=1784575165)
+00000000000i[CMOS  ] Setting initial clock to: Mon Jul 20 19:26:13   2026 tz=utc (time0=1784575573)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -269,28 +269,3 @@
 00224807985i[KBD   ] wheel mouse mode request rejected
 00225955243i[HD    ] disk ata1-0 not present, aborting
 00227021903i[SER   ] com1: FIFO enabled
-23182810000p[WINGUI] >>PANIC<< POWER button turned off.
-23182810000i[CPU0  ] CPU is in protected mode (halted)
-23182810000i[CPU0  ] CS.mode = 32 bit
-23182810000i[CPU0  ] SS.mode = 32 bit
-23182810000i[CPU0  ] EFER = 0x00000000: ffxsr nxe lma lme sce
-23182810000i[CPU0  ] XCR0=0x00000001: tiledata tilecfg hwp lbr uintr hdc cet_s cet_u pasid pkru pt hi_zmm zmm_hi256 opmask bndcfg bndregs ymm sse FPU
-23182810000i[CPU0  ] | EAX=00000001  EBX=00000087  ECX=00000000  EDX=00000000
-23182810000i[CPU0  ] | ESP=0204fed0  EBP=0204fed0  ESI=00000020  EDI=00000000
-23182810000i[CPU0  ] | EFLAGS=00200202: ID vip vif ac vm rf nt IOPL=0 of df IF tf sf zf af pf cf
-23182810000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-23182810000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
-23182810000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-23182810000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-23182810000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-23182810000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-23182810000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-23182810000i[CPU0  ] | EIP=022d7cbd (022d7cbd)
-23182810000i[CPU0  ] | CR0=0x00000011: pg cd nw ac wp ne ET ts em mp PE
-23182810000i[CPU0  ] | CR2=0x00000000
-23182810000i[CPU0  ] | CR3=0x00000000
-23182810000i[CPU0  ] | CR4=0x00000300: lass uintr pks cet pke smap smep keylock osxsave pcid fsgsbase smx vmx la57 umip osxmmexcpt OSFXSR PCE pge mce pae pse de tsd pvi vme
-23182810000i[CPU0  ] 0x00000000022d7cbd>> mov dword ptr ds:0x02052d32, 0x022d7cbd : C705322D0502BD7C2D02
-23182810000i[CMOS  ] Last time: 1784579801 tz=utc (Mon Jul 20 20:36:41   2026)
-23182810000i[      ] restoring default signal behavior
-23182810000i[SIM   ] quit_sim called with exit code 1
