@@ -16,15 +16,38 @@
     </div>
     
     <script>
-        window.onload = function() {
-            var emulator = new V86({
-                screen_container: document.getElementById("screen_container"),
-                bios: { url: "bios/seabios.bin" },
-                vga_bios: { url: "bios/vgabios.bin" },
-                cdrom: { url: "DestinyOS/bin/Debug/net6.0/DestinyOS.iso" },
-                wasm_path: "build/v86.wasm",
-                autostart: true,
-            });
+        window.onload = async function() {
+            try {
+                const response = await fetch('https://api.github.com/repos/betelguesestudios/DestinyOS/releases/latest');
+                const release = await response.json();
+                const isoAsset = release.assets.find(asset => asset.name.endsWith('.iso'));
+                
+                if (!isoAsset) {
+                    throw new Error('No ISO file found in the latest release');
+                }
+                const isoUrl = isoAsset.browser_download_url;
+                
+                console.log('Using ISO from:', isoUrl);
+                
+                var emulator = new V86({
+                    screen_container: document.getElementById("screen_container"),
+                    bios: { url: "bios/seabios.bin" },
+                    vga_bios: { url: "bios/vgabios.bin" },
+                    cdrom: { url: isoUrl },
+                    wasm_path: "build/v86.wasm",
+                    autostart: true,
+                });
+            } catch (error) {
+                console.error('Failed to fetch latest release:', error);
+                var emulator = new V86({
+                    screen_container: document.getElementById("screen_container"),
+                    bios: { url: "bios/seabios.bin" },
+                    vga_bios: { url: "bios/vgabios.bin" },
+                    cdrom: { url: "https://github.com/betelguesestudios/DestinyOS/releases/latest/download/DestinyOS.iso" },
+                    wasm_path: "build/v86.wasm",
+                    autostart: true,
+                });
+            }
         }
     </script>
 </body>
