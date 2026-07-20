@@ -16,6 +16,7 @@ namespace DestinyOS
             string vers = VeRsii.vere;
             Console.Clear();
             Console.WriteLine($"Welcome to DestinyOS! V{vers}");
+            Console.WriteLine("Type help and press enter for help!");
         }
 
         protected override void Run()
@@ -35,6 +36,9 @@ namespace DestinyOS
             else if (input == "help")
             {
                 Console.WriteLine($"Help for DestinyOS V{vers}");
+                Console.WriteLine("test - TEST");
+                Console.WriteLine("clear or clr - Clears console");
+                Console.WriteLine("help - This page");
             }
             else
             {
