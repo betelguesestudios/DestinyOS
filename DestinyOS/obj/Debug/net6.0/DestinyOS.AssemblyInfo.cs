@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Use VMware Player or Workstation to deploy and debug.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02cfc7e61eaf26774f9edd7fe4f3e015b6b622d7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0474bf2e26e5badca118eb348ed39170d5f73e45")]
 [assembly: System.Reflection.AssemblyProductAttribute("DestinyOS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DestinyOS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -64,6 +64,8 @@ namespace DestinyOS
                 Console.WriteLine("test - TEST");
                 Console.WriteLine("clear or clr - Clears console");
                 Console.WriteLine("help - This page");
+                Console.WriteLine("next - Next page of commands");
+                Console.WriteLine("prev - Previous page of commands");
                 return "";
             }
             else if (page == 2)
