@@ -7,18 +7,40 @@ namespace DestinyOS
 {
     public class Kernel : Sys.Kernel
     {
-
+        public class VeRsii
+        {
+            public static string vere = "0.1";
+        }
         protected override void BeforeRun()
         {
-            Console.WriteLine("Cosmos booted successfully. Type a line of text to get it echoed back.");
+            string vers = VeRsii.vere;
+            Console.Clear();
+            Console.WriteLine($"Welcome to DestinyOS! V{vers}");
         }
 
         protected override void Run()
         {
-            Console.Write("Input: ");
+            string vers = VeRsii.vere;
+            Console.Write("home:/");
             var input = Console.ReadLine();
-            Console.Write("Text typed: ");
-            Console.WriteLine(input);
+            if (input == "clear" || input == "clr")
+            {
+                Console.Clear();
+            }
+            else if (input == "test")
+            {
+                Console.WriteLine("This is a test!");
+                Console.Beep();
+            }
+            else if (input == "help")
+            {
+                Console.WriteLine($"Help for DestinyOS V{vers}");
+            }
+            else
+            {
+                Console.Write("Command not found: ");
+                Console.WriteLine(input);
+            }
         }
     }
 }

@@ -10,3 +10,4 @@ C:\Users\USER\3D Objects\savescratchhere\DestinyOS\DestinyOS\obj\Debug\net6.0\De
 C:\Users\USER\3D Objects\savescratchhere\DestinyOS\DestinyOS\obj\Debug\net6.0\refint\DestinyOS.dll
 C:\Users\USER\3D Objects\savescratchhere\DestinyOS\DestinyOS\obj\Debug\net6.0\DestinyOS.pdb
 C:\Users\USER\3D Objects\savescratchhere\DestinyOS\DestinyOS\obj\Debug\net6.0\ref\DestinyOS.dll
+C:\Users\USER\3D Objects\savescratchhere\DestinyOS\DestinyOS\obj\Debug\net6.0\DestinyOS.sourcelink.json
