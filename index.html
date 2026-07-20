@@ -11,19 +11,16 @@
     </div>
     
     <script>
-        window.onload = function() {
-            if (typeof V86Starter !== 'undefined') {
-                var emulator = new V86Starter({
-                    screen_container: document.getElementById("screen_container"),
-                    bios: { url: "bios/seabios.bin" },
-                    vga_bios: { url: "bios/vgabios.bin" },
-                    cdrom: { url: "DestinyOS/bin/Debug/net6.0/DestinyOS.iso" },
-                    autostart: true,
-                });
-            } else {
-                console.error('V86Starter not available');
-            }
-        }
+        setTimeout(function() {
+            console.log('Checking available globals...');
+            console.log('V86Starter:', typeof V86Starter);
+            console.log('V86:', typeof V86);
+            console.log('v86:', typeof v86);
+            var v86Keys = Object.keys(window).filter(key => 
+                key.toLowerCase().includes('v86') || key.toLowerCase().includes('v8')
+            );
+            console.log('V86-related globals:', v86Keys);
+        }, 1000);
     </script>
 </body>
 </html>
