@@ -28,7 +28,7 @@
 00000000000i[USBCTL] Pluggable USB devices
 00000000000i[USBCTL]   floppy mouse tablet keypad keyboard hub disk cdrom
 00000000000i[USBCTL]   printer
-00000000000i[MEM0  ] allocated memory at 0000000002543040. after alignment, vector=0000000002544000, block_size = 128K
+00000000000i[MEM0  ] allocated memory at 0000000002695040. after alignment, vector=0000000002696000, block_size = 128K
 00000000000i[MEM0  ] 256.00MB
 00000000000i[MEM0  ] mem block size = 0x00020000, blocks=2048
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('C:\Program Files\Bochs-3.0\BIOS-bochs-latest')
@@ -41,7 +41,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Mon Jul 20 15:17:32   2026 tz=utc (time0=1784560652)
+00000000000i[CMOS  ] Setting initial clock to: Mon Jul 20 17:01:57   2026 tz=utc (time0=1784566917)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -76,7 +76,7 @@
 00000000000i[CD1   ] load cdrom with path='C:\Users\USER\3D Objects\savescratchhere\DestinyOS\DestinyOS\bin\Debug\net6.0\DestinyOS.iso'
 00000000000i[CD1   ] Opening image file as a cd
 00000000000i[HD    ] Media present in CD-ROM drive
-00000000000i[HD    ] Capacity is 2392 sectors (4.67 MB)
+00000000000i[HD    ] Capacity is 2393 sectors (4.67 MB)
 00000000000i[PLUGIN] init_dev of 'pci_ide' plugin device by virtual method
 00000000000i[DEV   ] PIIX3 PCI IDE controller present at device 1, function 1
 00000000000i[PLUGIN] init_dev of 'unmapped' plugin device by virtual method
@@ -263,34 +263,34 @@
 00001529038i[BXVGA ] VBE known Display Interface b0c5
 00001530455i[VBIOS ] VBE Bios ID: vbe.c 2025-01-08
 00005248411i[BIOS  ] IDE time out
-00020968598i[BIOS  ] Booting from 07c0:0000
-00219311408i[KBD   ] reset-disable command received
-00219312525i[KBD   ] identify keyboard command received
-00219350947i[KBD   ] wheel mouse mode request rejected
-00220498205i[HD    ] disk ata1-0 not present, aborting
-00221564865i[SER   ] com1: FIFO enabled
-11417225000p[WINGUI] >>PANIC<< POWER button turned off.
-11417225000i[CPU0  ] CPU is in protected mode (halted)
-11417225000i[CPU0  ] CS.mode = 32 bit
-11417225000i[CPU0  ] SS.mode = 32 bit
-11417225000i[CPU0  ] EFER = 0x00000000: ffxsr nxe lma lme sce
-11417225000i[CPU0  ] XCR0=0x00000001: tiledata tilecfg hwp lbr uintr hdc cet_s cet_u pasid pkru pt hi_zmm zmm_hi256 opmask bndcfg bndregs ymm sse FPU
-11417225000i[CPU0  ] | EAX=00000001  EBX=00000087  ECX=00000000  EDX=00000000
-11417225000i[CPU0  ] | ESP=0204ff0c  EBP=0204ff0c  ESI=00000020  EDI=00000000
-11417225000i[CPU0  ] | EFLAGS=00200202: ID vip vif ac vm rf nt IOPL=0 of df IF tf sf zf af pf cf
-11417225000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-11417225000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
-11417225000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-11417225000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-11417225000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-11417225000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-11417225000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-11417225000i[CPU0  ] | EIP=022cd9b1 (022cd9b1)
-11417225000i[CPU0  ] | CR0=0x00000011: pg cd nw ac wp ne ET ts em mp PE
-11417225000i[CPU0  ] | CR2=0x00000000
-11417225000i[CPU0  ] | CR3=0x00000000
-11417225000i[CPU0  ] | CR4=0x00000300: lass uintr pks cet pke smap smep keylock osxsave pcid fsgsbase smx vmx la57 umip osxmmexcpt OSFXSR PCE pge mce pae pse de tsd pvi vme
-11417225000i[CPU0  ] 0x00000000022cd9b1>> mov dword ptr ds:0x0205281e, 0x022cd9b1 : C7051E280502B1D92C02
-11417225000i[CMOS  ] Last time: 1784562935 tz=utc (Mon Jul 20 15:55:35   2026)
-11417225000i[      ] restoring default signal behavior
-11417225000i[SIM   ] quit_sim called with exit code 1
+00020968689i[BIOS  ] Booting from 07c0:0000
+00218712613i[KBD   ] reset-disable command received
+00218713214i[KBD   ] identify keyboard command received
+00218751918i[KBD   ] wheel mouse mode request rejected
+00219898899i[HD    ] disk ata1-0 not present, aborting
+00220965559i[SER   ] com1: FIFO enabled
+144986040000p[WINGUI] >>PANIC<< POWER button turned off.
+144986040000i[CPU0  ] CPU is in protected mode (halted)
+144986040000i[CPU0  ] CS.mode = 32 bit
+144986040000i[CPU0  ] SS.mode = 32 bit
+144986040000i[CPU0  ] EFER = 0x00000000: ffxsr nxe lma lme sce
+144986040000i[CPU0  ] XCR0=0x00000001: tiledata tilecfg hwp lbr uintr hdc cet_s cet_u pasid pkru pt hi_zmm zmm_hi256 opmask bndcfg bndregs ymm sse FPU
+144986040000i[CPU0  ] | EAX=00000001  EBX=00000004  ECX=00000000  EDX=0241afd0
+144986040000i[CPU0  ] | ESP=0204ff0c  EBP=0204ff0c  ESI=00000002  EDI=00000000
+144986040000i[CPU0  ] | EFLAGS=00200202: ID vip vif ac vm rf nt IOPL=0 of df IF tf sf zf af pf cf
+144986040000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+144986040000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+144986040000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+144986040000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+144986040000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+144986040000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+144986040000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+144986040000i[CPU0  ] | EIP=022cdd3a (022cdd3a)
+144986040000i[CPU0  ] | CR0=0x00000011: pg cd nw ac wp ne ET ts em mp PE
+144986040000i[CPU0  ] | CR2=0x00000000
+144986040000i[CPU0  ] | CR3=0x00000000
+144986040000i[CPU0  ] | CR4=0x00000300: lass uintr pks cet pke smap smep keylock osxsave pcid fsgsbase smx vmx la57 umip osxmmexcpt OSFXSR PCE pge mce pae pse de tsd pvi vme
+144986040000i[CPU0  ] 0x00000000022cdd3a>> mov dword ptr ds:0x020528c4, 0x022cdd3a : C705C42805023ADD2C02
+144986040000i[CMOS  ] Last time: 1784595914 tz=utc (Tue Jul 21  1:05:14   2026)
+144986040000i[      ] restoring default signal behavior
+144986040000i[SIM   ] quit_sim called with exit code 1

@@ -9,7 +9,8 @@ namespace DestinyOS
     {
         public class VeRsii
         {
-            public static string vere = "0.2";
+            public static int page = 1;
+            public const string vere = "0.2";
         }
         protected override void BeforeRun()
         {
@@ -21,7 +22,6 @@ namespace DestinyOS
 
         protected override void Run()
         {
-            string vers = VeRsii.vere;
             Console.Write("home:/");
             var input = Console.ReadLine();
             if (input == "clear" || input == "clr")
@@ -35,15 +35,51 @@ namespace DestinyOS
             }
             else if (input == "help")
             {
-                Console.WriteLine($"Help for DestinyOS V{vers}");
-                Console.WriteLine("test - TEST");
-                Console.WriteLine("clear or clr - Clears console");
-                Console.WriteLine("help - This page");
+                VeRsii.page = 1;
+                SHowhelp(VeRsii.page);
+            }
+            else if (input == "next")
+            {
+                VeRsii.page++;
+                SHowhelp(VeRsii.page);
+            }
+            else if (input == "prev")
+            {
+                VeRsii.page--;
+                SHowhelp(VeRsii.page);
             }
             else
             {
                 Console.Write("Command not found: ");
                 Console.WriteLine(input);
+            }
+        }
+        public static string SHowhelp(int page)
+        {
+            string vers = VeRsii.vere;
+            if (page == 1)
+            {
+                Console.WriteLine($"Help for DestinyOS V{vers}");
+                Console.WriteLine("Page 1");
+                Console.WriteLine("test - TEST");
+                Console.WriteLine("clear or clr - Clears console");
+                Console.WriteLine("help - This page");
+                return "";
+            }
+            else if (page == 2)
+            {
+                Console.WriteLine("page 2");
+                return "";
+            }
+            else if (page == 3)
+            {
+                Console.WriteLine("page 3");
+                return "";
+            }
+            else
+            {
+                Console.WriteLine("not a page!");
+                return "";
             }
         }
     }
