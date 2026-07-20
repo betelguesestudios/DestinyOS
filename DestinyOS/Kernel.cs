@@ -9,7 +9,7 @@ namespace DestinyOS
     {
         public class VeRsii
         {
-            public static string vere = "0.1";
+            public static string vere = "0.2";
         }
         protected override void BeforeRun()
         {
