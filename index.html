@@ -1,0 +1,32 @@
+ <!doctype html>
+<html>
+<head>
+    <link rel="icon" href="data:;base64,=">
+    <script src="build/libv86.js"></script>
+    <style>
+        body{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <p style="color: white;">Disclaimer: This is the recentest version straight from the github root so things may not work as intended. Please use the releases.</p>
+    <div id="screen_container">
+        <div style="white-space: pre; font-family: monospace; line-height: 1.5"></div>
+        <canvas></canvas>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            var emulator = new V86({
+                screen_container: document.getElementById("screen_container"),
+                bios: { url: "bios/seabios.bin" },
+                vga_bios: { url: "bios/vgabios.bin" },
+                cdrom: { url: "DestinyOS/bin/Debug/net6.0/DestinyOS.iso" },
+                wasm_path: "build/v86.wasm",
+                autostart: true,
+            });
+        }
+    </script>
+</body>
+</html>
