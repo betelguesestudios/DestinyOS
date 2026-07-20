@@ -10,7 +10,7 @@ namespace DestinyOS
         public class VeRsii
         {
             public static int page = 1;
-            public const string vere = "0.2";
+            public const string vere = "0.3";
         }
         protected override void BeforeRun()
         {
