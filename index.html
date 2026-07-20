@@ -16,17 +16,34 @@
     </div>
     
     <script>
-        window.onload = async function() {
-            try {
-                const response = await fetch('https://api.github.com/repos/betelguesestudios/DestinyOS/releases/latest');
-                const release = await response.json();
-                const isoAsset = release.assets.find(asset => asset.name.endsWith('.iso'));
-                
-                if (!isoAsset) {
-                    throw new Error('No ISO file found in the latest release');
+        window.onload = function() {
+            // Function to get the latest release URL
+            async function getLatestReleaseUrl() {
+                try {
+                    const response = await fetch('https://api.github.com/repos/betelguesestudios/DestinyOS/releases/latest');
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const releaseData = await response.json();
+                    const isoAsset = releaseData.assets.find(asset => 
+                        asset.name.endsWith('.iso') || asset.name.includes('DestinyOS.iso')
+                    );
+                    
+                    if (isoAsset) {
+                        return isoAsset.browser_download_url;
+                    } else {
+                        console.warn('No ISO asset found, using tag download URL');
+                        return `https://github.com/betelguesestudios/DestinyOS/releases/download/${releaseData.tag_name}/DestinyOS.iso`;
+                    }
+                } catch (error) {
+                    console.error('Error fetching latest release:', error);
+                    return 'DestinyOS/bin/Debug/net6.0/DestinyOS.iso';
                 }
-                const isoUrl = isoAsset.browser_download_url;
-                
+            }
+            async function initEmulator() {
+                const isoUrl = await getLatestReleaseUrl();
                 console.log('Using ISO from:', isoUrl);
                 
                 var emulator = new V86({
@@ -37,17 +54,10 @@
                     wasm_path: "build/v86.wasm",
                     autostart: true,
                 });
-            } catch (error) {
-                console.error('Failed to fetch latest release:', error);
-                var emulator = new V86({
-                    screen_container: document.getElementById("screen_container"),
-                    bios: { url: "bios/seabios.bin" },
-                    vga_bios: { url: "bios/vgabios.bin" },
-                    cdrom: { url: "https://github.com/betelguesestudios/DestinyOS/releases/latest/download/DestinyOS.iso" },
-                    wasm_path: "build/v86.wasm",
-                    autostart: true,
-                });
             }
+
+            // Start the emulator
+            initEmulator();
         }
     </script>
 </body>
