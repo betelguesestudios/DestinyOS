@@ -269,3 +269,28 @@
 00218751918i[KBD   ] wheel mouse mode request rejected
 00219898899i[HD    ] disk ata1-0 not present, aborting
 00220965559i[SER   ] com1: FIFO enabled
+17083825000p[WINGUI] >>PANIC<< POWER button turned off.
+17083825000i[CPU0  ] CPU is in protected mode (halted)
+17083825000i[CPU0  ] CS.mode = 32 bit
+17083825000i[CPU0  ] SS.mode = 32 bit
+17083825000i[CPU0  ] EFER = 0x00000000: ffxsr nxe lma lme sce
+17083825000i[CPU0  ] XCR0=0x00000001: tiledata tilecfg hwp lbr uintr hdc cet_s cet_u pasid pkru pt hi_zmm zmm_hi256 opmask bndcfg bndregs ymm sse FPU
+17083825000i[CPU0  ] | EAX=00000001  EBX=00000087  ECX=00000000  EDX=00000000
+17083825000i[CPU0  ] | ESP=0204ff0c  EBP=0204ff0c  ESI=00000020  EDI=00000000
+17083825000i[CPU0  ] | EFLAGS=00200202: ID vip vif ac vm rf nt IOPL=0 of df IF tf sf zf af pf cf
+17083825000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+17083825000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+17083825000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+17083825000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+17083825000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+17083825000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+17083825000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+17083825000i[CPU0  ] | EIP=022cdd3a (022cdd3a)
+17083825000i[CPU0  ] | CR0=0x00000011: pg cd nw ac wp ne ET ts em mp PE
+17083825000i[CPU0  ] | CR2=0x00000000
+17083825000i[CPU0  ] | CR3=0x00000000
+17083825000i[CPU0  ] | CR4=0x00000300: lass uintr pks cet pke smap smep keylock osxsave pcid fsgsbase smx vmx la57 umip osxmmexcpt OSFXSR PCE pge mce pae pse de tsd pvi vme
+17083825000i[CPU0  ] 0x00000000022cdd3a>> mov dword ptr ds:0x020528c4, 0x022cdd3a : C705C42805023ADD2C02
+17083825000i[CMOS  ] Last time: 1784570647 tz=utc (Mon Jul 20 18:04:07   2026)
+17083825000i[      ] restoring default signal behavior
+17083825000i[SIM   ] quit_sim called with exit code 1
