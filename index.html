@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="icon" href="data:;base64,=">
-    <script src="https://unpkg.com/libv86@latest/build/libv86.js"></script>
+    <script src="https://copy.sh/v86/build/libv86.js"></script>
 </head>
 <body>
     <div id="screen_container">
@@ -12,13 +12,17 @@
     
     <script>
         window.onload = function() {
-            var emulator = new V86Starter({
-                screen_container: document.getElementById("screen_container"),
-                bios: { url: "bios/seabios.bin" },
-                vga_bios: { url: "bios/vgabios.bin" },
-                cdrom: { url: "DestinyOS/bin/Debug/net6.0/DestinyOS.iso" },
-                autostart: true,
-            });
+            if (typeof V86Starter !== 'undefined') {
+                var emulator = new V86Starter({
+                    screen_container: document.getElementById("screen_container"),
+                    bios: { url: "bios/seabios.bin" },
+                    vga_bios: { url: "bios/vgabios.bin" },
+                    cdrom: { url: "DestinyOS/bin/Debug/net6.0/DestinyOS.iso" },
+                    autostart: true,
+                });
+            } else {
+                console.error('V86Starter not available');
+            }
         }
     </script>
 </body>
