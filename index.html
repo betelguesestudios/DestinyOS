@@ -14,9 +14,10 @@
         window.onload = function() {
             var emulator = new V86({
                 screen_container: document.getElementById("screen_container"),
-                bios: { url: "bios/seabios.bin" },
-                vga_bios: { url: "bios/vgabios.bin" },
+                bios: { url: "https://copy.sh/v86/bios/seabios.bin" },
+                vga_bios: { url: "https://copy.sh/v86/bios/vgabios.bin" },
                 cdrom: { url: "DestinyOS/bin/Debug/net6.0/DestinyOS.iso" },
+                wasm_path: "https://copy.sh/v86/build/v86.wasm",
                 autostart: true,
             });
         }
