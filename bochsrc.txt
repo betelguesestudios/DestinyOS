@@ -1,21 +1,8 @@
-# Bochs configuration for Cosmos OS
 display_library: win32, options="gui_debug"
-
-# Memory (Cosmos needs at least 128MB)
 megs: 256
-
-# Boot from CD-ROM
 boot: cdrom
-
-# ATA controller for CD-ROM
 ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
 ata0-master: type=cdrom, path="C:\Users\USER\3D Objects\savescratchhere\DestinyOS\DestinyOS\bin\Debug\net6.0\DestinyOS.iso", status=inserted
-
-# Enable VBE graphics (important for Cosmos GUI)
 vga: extension=vbe, update_freq=15
-
-# CPU configuration - fixed IPS to be within range
 cpu: count=1, ips=5000000
-
-# Logging
 log: bochsout.txt
