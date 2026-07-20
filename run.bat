@@ -1,0 +1,1 @@
+"C:\Program Files\Bochs-3.0\bochs.exe" -q -f "C:\Users\USER\3D Objects\savescratchhere\DestinyOS\bochsrc.txt"
