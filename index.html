@@ -1,18 +1,25 @@
 <!doctype html>
-<script src="build/libv86.js"></script>
-<script>
-    window.onload = function() {
-        var emulator = new V86Starter({
-            screen_container: document.getElementById("screen_container"),
-            bios: { url: "bios/seabios.bin" },
-            vga_bios: { url: "bios/vgabios.bin" },
-            cdrom: { url: "DestinyOS/bin/Debug/net6.0/DestinyOS.iso" },
-            autostart: true,
-        });
-    }
-</script>
-
-<div id="screen_container">
-    <div style="white-space: pre; font-family: monospace; line-height: 1.5"></div>
-    <canvas></canvas>
-</div>
+<html>
+<head>
+    <link rel="icon" href="data:;base64,=">
+    <script src="https://unpkg.com/libv86@latest/build/libv86.js"></script>
+</head>
+<body>
+    <div id="screen_container">
+        <div style="white-space: pre; font-family: monospace; line-height: 1.5"></div>
+        <canvas></canvas>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            var emulator = new V86Starter({
+                screen_container: document.getElementById("screen_container"),
+                bios: { url: "bios/seabios.bin" },
+                vga_bios: { url: "bios/vgabios.bin" },
+                cdrom: { url: "DestinyOS/bin/Debug/net6.0/DestinyOS.iso" },
+                autostart: true,
+            });
+        }
+    </script>
+</body>
+</html>
