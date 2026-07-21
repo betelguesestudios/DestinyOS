@@ -70,11 +70,27 @@ namespace DestinyOS
                 Console.ForegroundColor = ConsoleColor.Green;
                 string vendorr = Cosmos.Core.CPU.GetCPUVendorName();
                 string bradns = Cosmos.Core.CPU.GetCPUBrandString();
-                string speed = Cosmos.Core.CPU.GetCPUCycleSpeed().ToString();
+
+                string speedDisplay = "Unknown";
+
+                if (bradns != null && bradns.Contains("@"))
+                {
+                    string rawSpeedPart = bradns.Split('@')[1];
+
+                    speedDisplay = rawSpeedPart.Trim();
+                }
+
                 Console.WriteLine("CPU Vendor: " + vendorr);
                 Console.WriteLine("CPU Brand:  " + bradns);
-                Console.WriteLine("CPU Speed: " + speed);
+                Console.WriteLine("CPU Speed:  " + speedDisplay);
                 Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (input == "raminf")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                uint amount = Cosmos.Core.CPU.GetAmountOfRAM();
+                Console.WriteLine("RAM Amount (in MB): " + (amount + 2).ToString());
+
             }
             else if (input == "tune")
             {
@@ -131,7 +147,9 @@ namespace DestinyOS
             }
             else if (page == 3)
             {
-                Console.WriteLine("page 3");
+                Console.WriteLine($"Help for DestinyOS V{vers}");
+                Console.WriteLine("Page 3");
+                Console.WriteLine("raminf - Gets info about the RAM");
                 Console.ForegroundColor = ConsoleColor.White;
                 return "";
             }
