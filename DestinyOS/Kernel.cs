@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Cosmos.System.FileSystem.VFS;
 using Sys = Cosmos.System;
 
 namespace DestinyOS
@@ -10,7 +11,7 @@ namespace DestinyOS
         public class VeRsii
         {
             public static int page = 1;
-            public const string vere = "0.4";
+            public const string vere = "0.5";
         }
         protected override void BeforeRun()
         {
@@ -20,6 +21,7 @@ namespace DestinyOS
             Console.Clear();
             Console.WriteLine($"Welcome to DestinyOS! V{vers}");
             Console.WriteLine("Type help and press enter for help!");
+            Console.WriteLine(VFSManager.GetDisks().ToString());
         }
 
         protected override void Run()
