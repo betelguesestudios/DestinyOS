@@ -16,12 +16,9 @@ namespace DestinyOS
         protected override void BeforeRun()
         {
             string vers = VeRsii.vere;
-            var fs = new Sys.FileSystem.CosmosVFS();
-            Sys.FileSystem.VFS.VFSManager.RegisterVFS(fs);
             Console.Clear();
             Console.WriteLine($"Welcome to DestinyOS! V{vers}");
             Console.WriteLine("Type help and press enter for help!");
-            Console.WriteLine(VFSManager.GetDisks().ToString());
         }
 
         protected override void Run()
@@ -61,17 +58,6 @@ namespace DestinyOS
             else if (input == "reboot")
             {
                 Cosmos.System.Power.Reboot();
-            }
-            else if (input == "ls")
-            {
-                string[] filePaths = System.IO.Directory.GetFiles(@"0:\");
-
-                Console.WriteLine("Listing files in 0:\\");
-                foreach (string path in filePaths)
-                {
-                    Console.WriteLine(System.IO.Path.GetFileName(path));
-                }
-
             }
             else if (input == "cpuinf")
             {
@@ -118,7 +104,6 @@ namespace DestinyOS
                 Console.WriteLine("reboot - Reboots the system");
                 Console.WriteLine("cpuinf - Gets info about the CPU");
                 Console.WriteLine("tune - A tune to test speakers! (only works with windows drivers)");
-                Console.WriteLine("ls - list files in dir (beta)");
                 return "";
             }
             else if (page == 3)
