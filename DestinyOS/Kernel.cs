@@ -17,8 +17,10 @@ namespace DestinyOS
         {
             string vers = VeRsii.vere;
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Welcome to DestinyOS! V{vers}");
             Console.WriteLine("Type help and press enter for help!");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         protected override void Run()
@@ -78,6 +80,11 @@ namespace DestinyOS
                     System.Threading.Thread.Sleep(50);
                 }
             }
+            else if (input == "stscr")
+            {
+                Console.WriteLine($"Welcome to DestinyOS! V{VeRsii.vere}");
+                Console.WriteLine("Type help and press enter for help!");
+            }
             else
             {
                 Console.Write("Command not found: ");
@@ -86,6 +93,7 @@ namespace DestinyOS
         }
         public static string SHowhelp(int page)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             string vers = VeRsii.vere;
             if (page == 1)
             {
@@ -96,6 +104,7 @@ namespace DestinyOS
                 Console.WriteLine("help - This page");
                 Console.WriteLine("next - Next page of commands");
                 Console.WriteLine("prev - Previous page of commands");
+                Console.ForegroundColor = ConsoleColor.White;
                 return "";
             }
             else if (page == 2)
@@ -106,18 +115,22 @@ namespace DestinyOS
                 Console.WriteLine("reboot - Reboots the system");
                 Console.WriteLine("cpuinf - Gets info about the CPU");
                 Console.WriteLine("tune - A tune to test speakers! (only works with windows drivers)");
+                Console.ForegroundColor = ConsoleColor.White;
                 return "";
             }
             else if (page == 3)
             {
                 Console.WriteLine("page 3");
+                Console.ForegroundColor = ConsoleColor.White;
                 return "";
             }
             else
             {
                 Console.WriteLine("Not a page! Please go back to the last page");
+                Console.ForegroundColor = ConsoleColor.White;
                 return "";
             }
+            
         }
     }
 }

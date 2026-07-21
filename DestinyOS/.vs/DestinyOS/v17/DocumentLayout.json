@@ -30,7 +30,8 @@
               "RelativeToolTip": "DestinyOS.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-07-21T01:30:34.567Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -40,7 +41,7 @@
               "RelativeDocumentMoniker": "Kernel.cs",
               "ToolTip": "C:\\Users\\USER\\3D Objects\\savescratchhere\\DestinyOS\\DestinyOS\\Kernel.cs",
               "RelativeToolTip": "Kernel.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAwwEQAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAAAHkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-19T07:43:14.403Z",
               "IsPinned": true,

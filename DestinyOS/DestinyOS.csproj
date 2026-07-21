@@ -19,6 +19,7 @@
         <PxeInterface>192.168.0.8</PxeInterface>
         <CompressionType>Gzip</CompressionType>
         <DebugEnabled>False</DebugEnabled>
+        <OptimizationLevel>2</OptimizationLevel>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
