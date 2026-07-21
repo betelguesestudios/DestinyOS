@@ -28,7 +28,7 @@
 00000000000i[USBCTL] Pluggable USB devices
 00000000000i[USBCTL]   floppy mouse tablet keypad keyboard hub disk cdrom
 00000000000i[USBCTL]   printer
-00000000000i[MEM0  ] allocated memory at 00000000026ED040. after alignment, vector=00000000026EE000, block_size = 128K
+00000000000i[MEM0  ] allocated memory at 0000000002726040. after alignment, vector=0000000002727000, block_size = 128K
 00000000000i[MEM0  ] 256.00MB
 00000000000i[MEM0  ] mem block size = 0x00020000, blocks=2048
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('C:\Program Files\Bochs-3.0\BIOS-bochs-latest')
@@ -41,7 +41,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Tue Jul 21 16:26:57   2026 tz=utc (time0=1784651217)
+00000000000i[CMOS  ] Setting initial clock to: Tue Jul 21 16:58:08   2026 tz=utc (time0=1784653088)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -264,33 +264,34 @@
 00001530455i[VBIOS ] VBE Bios ID: vbe.c 2025-01-08
 00005248411i[BIOS  ] IDE time out
 00020974695i[BIOS  ] Booting from 07c0:0000
-00227325929i[KBD   ] reset-disable command received
-00227326917i[KBD   ] identify keyboard command received
-00227365468i[KBD   ] wheel mouse mode request rejected
-00228512726i[HD    ] disk ata1-0 not present, aborting
-00229579386i[SER   ] com1: FIFO enabled
-15802840000p[WINGUI] >>PANIC<< POWER button turned off.
-15802840000i[CPU0  ] CPU is in protected mode (halted)
-15802840000i[CPU0  ] CS.mode = 32 bit
-15802840000i[CPU0  ] SS.mode = 32 bit
-15802840000i[CPU0  ] EFER = 0x00000000: ffxsr nxe lma lme sce
-15802840000i[CPU0  ] XCR0=0x00000001: tiledata tilecfg hwp lbr uintr hdc cet_s cet_u pasid pkru pt hi_zmm zmm_hi256 opmask bndcfg bndregs ymm sse FPU
-15802840000i[CPU0  ] | EAX=00000001  EBX=00000002  ECX=00000000  EDX=0245cfc0
-15802840000i[CPU0  ] | ESP=0204febc  EBP=0204febc  ESI=00000002  EDI=00000000
-15802840000i[CPU0  ] | EFLAGS=00200202: ID vip vif ac vm rf nt IOPL=0 of df IF tf sf zf af pf cf
-15802840000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-15802840000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
-15802840000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-15802840000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-15802840000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-15802840000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-15802840000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-15802840000i[CPU0  ] | EIP=022da0ff (022da0ff)
-15802840000i[CPU0  ] | CR0=0x00000011: pg cd nw ac wp ne ET ts em mp PE
-15802840000i[CPU0  ] | CR2=0x00000000
-15802840000i[CPU0  ] | CR3=0x00000000
-15802840000i[CPU0  ] | CR4=0x00000300: lass uintr pks cet pke smap smep keylock osxsave pcid fsgsbase smx vmx la57 umip osxmmexcpt OSFXSR PCE pge mce pae pse de tsd pvi vme
-15802840000i[CPU0  ] 0x00000000022da0ff>> mov dword ptr ds:0x02052e52, 0x022da0ff : C705522E0502FFA02D02
-15802840000i[CMOS  ] Last time: 1784654377 tz=utc (Tue Jul 21 17:19:37   2026)
-15802840000i[      ] restoring default signal behavior
-15802840000i[SIM   ] quit_sim called with exit code 1
+00202761660i[WINGUI] &&&missing mouse state change
+00227336671i[KBD   ] reset-disable command received
+00227337401i[KBD   ] identify keyboard command received
+00227375952i[KBD   ] wheel mouse mode request rejected
+00228523210i[HD    ] disk ata1-0 not present, aborting
+00229589870i[SER   ] com1: FIFO enabled
+256867625000p[WINGUI] >>PANIC<< POWER button turned off.
+256867625000i[CPU0  ] CPU is in protected mode (halted)
+256867625000i[CPU0  ] CS.mode = 32 bit
+256867625000i[CPU0  ] SS.mode = 32 bit
+256867625000i[CPU0  ] EFER = 0x00000000: ffxsr nxe lma lme sce
+256867625000i[CPU0  ] XCR0=0x00000001: tiledata tilecfg hwp lbr uintr hdc cet_s cet_u pasid pkru pt hi_zmm zmm_hi256 opmask bndcfg bndregs ymm sse FPU
+256867625000i[CPU0  ] | EAX=00000001  EBX=00000087  ECX=00000000  EDX=00000000
+256867625000i[CPU0  ] | ESP=0204febc  EBP=0204febc  ESI=00000020  EDI=00000000
+256867625000i[CPU0  ] | EFLAGS=00200202: ID vip vif ac vm rf nt IOPL=0 of df IF tf sf zf af pf cf
+256867625000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+256867625000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+256867625000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+256867625000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+256867625000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+256867625000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+256867625000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+256867625000i[CPU0  ] | EIP=022da292 (022da292)
+256867625000i[CPU0  ] | CR0=0x00000011: pg cd nw ac wp ne ET ts em mp PE
+256867625000i[CPU0  ] | CR2=0x00000000
+256867625000i[CPU0  ] | CR3=0x00000000
+256867625000i[CPU0  ] | CR4=0x00000300: lass uintr pks cet pke smap smep keylock osxsave pcid fsgsbase smx vmx la57 umip osxmmexcpt OSFXSR PCE pge mce pae pse de tsd pvi vme
+256867625000i[CPU0  ] 0x00000000022da292>> mov dword ptr ds:0x02052ec2, 0x022da292 : C705C22E050292A22D02
+256867625000i[CMOS  ] Last time: 1784704461 tz=utc (Wed Jul 22  7:14:21   2026)
+256867625000i[      ] restoring default signal behavior
+256867625000i[SIM   ] quit_sim called with exit code 1

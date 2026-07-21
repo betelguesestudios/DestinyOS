@@ -25,7 +25,9 @@ namespace DestinyOS
 
         protected override void Run()
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.Write("home:/");
+            Console.ForegroundColor = ConsoleColor.White;
             var input = Console.ReadLine();
             if (input == "clear" || input == "clr")
             {
@@ -33,10 +35,12 @@ namespace DestinyOS
             }
             else if (input == "test")
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("This is a test!");
                 Console.Beep();
                 Console.WriteLine("The program should have beeped");
                 Console.WriteLine("Only works on windows drivers");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             else if (input == "help")
             {
@@ -63,12 +67,14 @@ namespace DestinyOS
             }
             else if (input == "cpuinf")
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 string vendorr = Cosmos.Core.CPU.GetCPUVendorName();
                 string bradns = Cosmos.Core.CPU.GetCPUBrandString();
                 string speed = Cosmos.Core.CPU.GetCPUCycleSpeed().ToString();
                 Console.WriteLine("CPU Vendor: " + vendorr);
                 Console.WriteLine("CPU Brand:  " + bradns);
                 Console.WriteLine("CPU Speed: " + speed);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             else if (input == "tune")
             {
@@ -82,13 +88,17 @@ namespace DestinyOS
             }
             else if (input == "stscr")
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"Welcome to DestinyOS! V{VeRsii.vere}");
                 Console.WriteLine("Type help and press enter for help!");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("Command not found: ");
                 Console.WriteLine(input);
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
         public static string SHowhelp(int page)
@@ -115,6 +125,7 @@ namespace DestinyOS
                 Console.WriteLine("reboot - Reboots the system");
                 Console.WriteLine("cpuinf - Gets info about the CPU");
                 Console.WriteLine("tune - A tune to test speakers! (only works with windows drivers)");
+                Console.WriteLine("stscr - Displays the screen that appears on boot");
                 Console.ForegroundColor = ConsoleColor.White;
                 return "";
             }
