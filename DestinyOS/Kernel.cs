@@ -63,8 +63,10 @@ namespace DestinyOS
             {
                 string vendorr = Cosmos.Core.CPU.GetCPUVendorName();
                 string bradns = Cosmos.Core.CPU.GetCPUBrandString();
+                string speed = Cosmos.Core.CPU.GetCPUCycleSpeed().ToString();
                 Console.WriteLine("CPU Vendor: " + vendorr);
                 Console.WriteLine("CPU Brand:  " + bradns);
+                Console.WriteLine("CPU Speed: " + speed);
             }
             else if (input == "tune")
             {
