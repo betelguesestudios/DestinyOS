@@ -28,9 +28,9 @@
 00000000000i[USBCTL] Pluggable USB devices
 00000000000i[USBCTL]   floppy mouse tablet keypad keyboard hub disk cdrom
 00000000000i[USBCTL]   printer
-00000000000i[MEM0  ] allocated memory at 00000000026C8040. after alignment, vector=00000000026C9000, block_size = 128K
-00000000000i[MEM0  ] 1000.00MB
-00000000000i[MEM0  ] mem block size = 0x00020000, blocks=8000
+00000000000i[MEM0  ] allocated memory at 0000000002602040. after alignment, vector=0000000002603000, block_size = 128K
+00000000000i[MEM0  ] 256.00MB
+00000000000i[MEM0  ] mem block size = 0x00020000, blocks=2048
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('C:\Program Files\Bochs-3.0\BIOS-bochs-latest')
 00000000000i[CPU0  ] WARNING: RDRAND would not produce true random numbers !
 00000000000i[CPU0  ] initialized CPU model corei7_haswell_4770
@@ -41,7 +41,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Tue Jul 21 19:25:09   2026 tz=utc (time0=1784661909)
+00000000000i[CMOS  ] Setting initial clock to: Wed Jul 22 13:46:33   2026 tz=utc (time0=1784727993)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -76,7 +76,7 @@
 00000000000i[CD1   ] load cdrom with path='C:\Users\USER\3D Objects\savescratchhere\DestinyOS\DestinyOS\bin\Debug\net6.0\DestinyOS.iso'
 00000000000i[CD1   ] Opening image file as a cd
 00000000000i[HD    ] Media present in CD-ROM drive
-00000000000i[HD    ] Capacity is 2475 sectors (4.83 MB)
+00000000000i[HD    ] Capacity is 2478 sectors (4.84 MB)
 00000000000i[PLUGIN] init_dev of 'pci_ide' plugin device by virtual method
 00000000000i[DEV   ] PIIX3 PCI IDE controller present at device 1, function 1
 00000000000i[PLUGIN] init_dev of 'unmapped' plugin device by virtual method
@@ -221,76 +221,76 @@
 00000315052i[KBD   ] reset-disable command received
 00000317307i[BIOS  ] Starting rombios32
 00000317745i[BIOS  ] Shutdown flag 0
-00000318353i[BIOS  ] ram_size=0x3e800000
-00000318831i[BIOS  ] ram_end=1000MB
+00000318353i[BIOS  ] ram_size=0x10000000
+00000318808i[BIOS  ] ram_end=256MB
 00000333330i[WINGUI] dimension update x=720 y=400 fontheight=16 fontwidth=9 bpp=8
-00000369446i[BIOS  ] Found 1 cpu(s)
-00000383404i[BIOS  ] bios_table_addr: 0x000fa168 end=0x000fcc00
-00000711218i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
-00001039152i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
-00001039176i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
-00001039200i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
-00001039224i[P2ISA ] PCI IRQ routing: PIRQD# set to 0x09
-00001039236i[P2ISA ] write: ELCR2 = 0x0a
-00001040006i[BIOS  ] PIIX3/PIIX4 init: elcr=00 0a
-00001053682i[BIOS  ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
-00001056026i[BIOS  ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
-00001058209i[BIOS  ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
-00001058443i[PIDE  ] BAR #4: i/o base address = 0xc000
-00001059060i[BIOS  ] region 4: 0x0000c000
-00001061095i[BIOS  ] PCI: bus=0 devfn=0x0a: vendor_id=0x8086 device_id=0x7020 class=0x0c03
-00001061307i[UHCI  ] BAR #4: i/o base address = 0xc020
-00001061924i[BIOS  ] region 4: 0x0000c020
-00001062049i[UHCI  ] new IRQ line = 9
-00001063974i[BIOS  ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
-00001064247i[ACPI  ] new IRQ line = 11
-00001064262i[ACPI  ] new IRQ line = 9
-00001064290i[ACPI  ] new PM base address: 0xb000
-00001064305i[ACPI  ] new SM base address: 0xb100
-00001064333i[PCI   ] setting SMRAM control register to 0x4a
-00001228470i[CPU0  ] Enter to System Management Mode
-00001228470i[CPU0  ] enter_system_management_mode: temporary disable VMX while in SMM mode
-00001228480i[CPU0  ] RSM: Resuming from System Management Mode
-00001392534i[PCI   ] setting SMRAM control register to 0x0a
-00001419198i[BIOS  ] MP table addr=0x000fa240 MPC table addr=0x000fa170 size=0xc8
-00001420905i[BIOS  ] SMBIOS table addr=0x000fa250
-00001423004i[BIOS  ] ACPI tables: RSDP addr=0x000fa370 ACPI DATA addr=0x3e7f0000 size=0xff8
-00001426012i[BIOS  ] Firmware waking vector 0x3e7f00cc
-00001428263i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
-00001428996i[BIOS  ] bios_table_cur_addr: 0x000fa394
-00001528944i[VBIOS ] VGABios ID: vgabios.c 2025-01-08
-00001529027i[BXVGA ] VBE known Display Interface b0c0
-00001529067i[BXVGA ] VBE known Display Interface b0c5
-00001530484i[VBIOS ] VBE Bios ID: vbe.c 2025-01-08
-00005248440i[BIOS  ] IDE time out
-00020974795i[BIOS  ] Booting from 07c0:0000
-00233635612i[KBD   ] reset-disable command received
-00233636729i[KBD   ] identify keyboard command received
-00233675428i[KBD   ] wheel mouse mode request rejected
-00234822409i[HD    ] disk ata1-0 not present, aborting
-00235889069i[SER   ] com1: FIFO enabled
-11228805000p[WINGUI] >>PANIC<< POWER button turned off.
-11228805000i[CPU0  ] CPU is in protected mode (halted)
-11228805000i[CPU0  ] CS.mode = 32 bit
-11228805000i[CPU0  ] SS.mode = 32 bit
-11228805000i[CPU0  ] EFER = 0x00000000: ffxsr nxe lma lme sce
-11228805000i[CPU0  ] XCR0=0x00000001: tiledata tilecfg hwp lbr uintr hdc cet_s cet_u pasid pkru pt hi_zmm zmm_hi256 opmask bndcfg bndregs ymm sse FPU
-11228805000i[CPU0  ] | EAX=00000001  EBX=00000087  ECX=00000000  EDX=00000000
-11228805000i[CPU0  ] | ESP=0204feac  EBP=0204feac  ESI=00000020  EDI=00000000
-11228805000i[CPU0  ] | EFLAGS=00000202: id vip vif ac vm rf nt IOPL=0 of df IF tf sf zf af pf cf
-11228805000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-11228805000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
-11228805000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-11228805000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-11228805000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-11228805000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-11228805000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-11228805000i[CPU0  ] | EIP=022e035e (022e035e)
-11228805000i[CPU0  ] | CR0=0x00000011: pg cd nw ac wp ne ET ts em mp PE
-11228805000i[CPU0  ] | CR2=0x00000000
-11228805000i[CPU0  ] | CR3=0x00000000
-11228805000i[CPU0  ] | CR4=0x00000300: lass uintr pks cet pke smap smep keylock osxsave pcid fsgsbase smx vmx la57 umip osxmmexcpt OSFXSR PCE pge mce pae pse de tsd pvi vme
-11228805000i[CPU0  ] 0x00000000022e035e>> mov dword ptr ds:0x02052f16, 0x022e035e : C705162F05025E032E02
-11228805000i[CMOS  ] Last time: 1784664154 tz=utc (Tue Jul 21 20:02:34   2026)
-11228805000i[      ] restoring default signal behavior
-11228805000i[SIM   ] quit_sim called with exit code 1
+00000369450i[BIOS  ] Found 1 cpu(s)
+00000383408i[BIOS  ] bios_table_addr: 0x000fa168 end=0x000fcc00
+00000711222i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001039156i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
+00001039180i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
+00001039204i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
+00001039228i[P2ISA ] PCI IRQ routing: PIRQD# set to 0x09
+00001039240i[P2ISA ] write: ELCR2 = 0x0a
+00001040010i[BIOS  ] PIIX3/PIIX4 init: elcr=00 0a
+00001053686i[BIOS  ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
+00001056030i[BIOS  ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
+00001058213i[BIOS  ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
+00001058447i[PIDE  ] BAR #4: i/o base address = 0xc000
+00001059064i[BIOS  ] region 4: 0x0000c000
+00001061099i[BIOS  ] PCI: bus=0 devfn=0x0a: vendor_id=0x8086 device_id=0x7020 class=0x0c03
+00001061311i[UHCI  ] BAR #4: i/o base address = 0xc020
+00001061928i[BIOS  ] region 4: 0x0000c020
+00001062053i[UHCI  ] new IRQ line = 9
+00001063978i[BIOS  ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
+00001064251i[ACPI  ] new IRQ line = 11
+00001064266i[ACPI  ] new IRQ line = 9
+00001064294i[ACPI  ] new PM base address: 0xb000
+00001064309i[ACPI  ] new SM base address: 0xb100
+00001064337i[PCI   ] setting SMRAM control register to 0x4a
+00001228474i[CPU0  ] Enter to System Management Mode
+00001228474i[CPU0  ] enter_system_management_mode: temporary disable VMX while in SMM mode
+00001228484i[CPU0  ] RSM: Resuming from System Management Mode
+00001392538i[PCI   ] setting SMRAM control register to 0x0a
+00001419202i[BIOS  ] MP table addr=0x000fa240 MPC table addr=0x000fa170 size=0xc8
+00001420909i[BIOS  ] SMBIOS table addr=0x000fa250
+00001422998i[BIOS  ] ACPI tables: RSDP addr=0x000fa370 ACPI DATA addr=0x0fff0000 size=0xff8
+00001425983i[BIOS  ] Firmware waking vector 0xfff00cc
+00001428234i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001428967i[BIOS  ] bios_table_cur_addr: 0x000fa394
+00001528915i[VBIOS ] VGABios ID: vgabios.c 2025-01-08
+00001528998i[BXVGA ] VBE known Display Interface b0c0
+00001529038i[BXVGA ] VBE known Display Interface b0c5
+00001530455i[VBIOS ] VBE Bios ID: vbe.c 2025-01-08
+00005248411i[BIOS  ] IDE time out
+00020975059i[BIOS  ] Booting from 07c0:0000
+00226871032i[KBD   ] reset-disable command received
+00226871762i[KBD   ] identify keyboard command received
+00226910184i[KBD   ] wheel mouse mode request rejected
+00228057442i[HD    ] disk ata1-0 not present, aborting
+00229124102i[SER   ] com1: FIFO enabled
+57994095000p[WINGUI] >>PANIC<< POWER button turned off.
+57994095000i[CPU0  ] CPU is in protected mode (halted)
+57994095000i[CPU0  ] CS.mode = 32 bit
+57994095000i[CPU0  ] SS.mode = 32 bit
+57994095000i[CPU0  ] EFER = 0x00000000: ffxsr nxe lma lme sce
+57994095000i[CPU0  ] XCR0=0x00000001: tiledata tilecfg hwp lbr uintr hdc cet_s cet_u pasid pkru pt hi_zmm zmm_hi256 opmask bndcfg bndregs ymm sse FPU
+57994095000i[CPU0  ] | EAX=00000001  EBX=00000087  ECX=00000000  EDX=00000000
+57994095000i[CPU0  ] | ESP=0204fe90  EBP=0204fe90  ESI=00000020  EDI=00000000
+57994095000i[CPU0  ] | EFLAGS=00200202: ID vip vif ac vm rf nt IOPL=0 of df IF tf sf zf af pf cf
+57994095000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+57994095000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+57994095000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+57994095000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+57994095000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+57994095000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+57994095000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+57994095000i[CPU0  ] | EIP=022e1902 (022e1902)
+57994095000i[CPU0  ] | CR0=0x00000011: pg cd nw ac wp ne ET ts em mp PE
+57994095000i[CPU0  ] | CR2=0x00000000
+57994095000i[CPU0  ] | CR3=0x00000000
+57994095000i[CPU0  ] | CR4=0x00000300: lass uintr pks cet pke smap smep keylock osxsave pcid fsgsbase smx vmx la57 umip osxmmexcpt OSFXSR PCE pge mce pae pse de tsd pvi vme
+57994095000i[CPU0  ] 0x00000000022e1902>> mov dword ptr ds:0x0205335a, 0x022e1902 : C7055A33050202192E02
+57994095000i[CMOS  ] Last time: 1784739591 tz=utc (Wed Jul 22 16:59:51   2026)
+57994095000i[      ] restoring default signal behavior
+57994095000i[SIM   ] quit_sim called with exit code 1
