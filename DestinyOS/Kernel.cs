@@ -44,6 +44,14 @@ namespace DestinyOS
             string vers = VeRsii.vere;
             Console.Clear();
             Console.ForegroundColor = SystemColor;
+            Console.WriteLine("  _____            _   _              ____   _____ ");
+            Console.WriteLine(" |  __ \\          | | (_)            / __ \\ / ____|");
+            Console.WriteLine(" | |  | | ___  ___| |_ _ _ __  _   _| |  | | (___  ");
+            Console.WriteLine(" | |  | |/ _ \\/ __| __| | '_ \\| | | | |  | |\\___ \\");
+            Console.WriteLine(" | |__| |  __/\\__ \\ |_| | | | | |_| | |__| |____) |");
+            Console.WriteLine(" |_____/ \\___||___/\\__|_|_| |_|\\__, |\\____/|_____/ ");
+            Console.WriteLine("                                __/ |              ");
+            Console.WriteLine("                               |___/               ");
             Console.WriteLine($"Welcome to DestinyOS! V{vers}");
             Console.WriteLine("Type help and press enter for help!");
             Console.ForegroundColor = ConsoleColor.White;
@@ -55,8 +63,60 @@ namespace DestinyOS
                 Console.Clear();
             });
 
-            RegisterCommand("clr", "Clears the console (alias)", "clr", "clr", (args) => {
+            RegisterCommand("clr", "Clears the console", "clear or clr", "clr", (args) => {
                 Console.Clear();
+            });
+            RegisterCommand("echo", "Repeats anything you put after it", "echo <text>", "echo hi!", (arg) =>
+            {
+                Console.WriteLine(arg);
+            });
+            RegisterCommand("wow", "Gives inspirational quotes", "wow", "wow", (args) => {
+                Random rnd = new Random();
+                int randomNumber = rnd.Next(10);
+                if (randomNumber == 0)
+                {
+                    Console.WriteLine("The only impossible journey is the one you never begin. - Tony Robbins");
+                }
+                else if (randomNumber == 1)
+                {
+                    Console.WriteLine("The most difficult thing is the decision to act, the rest is merely tenacity. - Amelia Earhart");
+                }
+                else if (randomNumber == 2)
+                {
+                    Console.WriteLine("Only I can change my life. No one can do it for me. - Carol Burnett");
+                }
+                else if (randomNumber == 3)
+                {
+                    Console.WriteLine("A good plan violently executed now is better than a perfect plan executed next week. - George S. Patton");
+                }
+                else if (randomNumber == 4)
+                {
+                    Console.WriteLine("Either you run the day or the day runs you. - Jim Rohn");
+                }
+                else if (randomNumber == 5)
+                {
+                    Console.WriteLine("Failure will never overtake me if my determination to succeed is strong enough. - Og Mandino");
+                }
+                else if (randomNumber == 6)
+                {
+                    Console.WriteLine("Aim for the moon. If you miss, you may hit a star. - W. Clement Stone");
+                }
+                else if (randomNumber == 7)
+                {
+                    Console.WriteLine("I ended up being airborne for over 5 minutes, that's how I got the nickname Ross. - Ross Federman");
+                }
+                else if (randomNumber == 8)
+                {
+                    Console.WriteLine("Expect problems and eat them for breakfast. - Alfred A. Montapert");
+                }
+                else if (randomNumber == 9)
+                {
+                    Console.WriteLine("Change your life today. Don't gamble on the future, act now, without delay. - Simone de Beauvoir");
+                }
+                else
+                {
+                    Console.WriteLine("Error! Something happened and randomness dosen't work!");
+                }
             });
 
             RegisterCommand("test", "Tests system functionality and beep", "test", "test", (args) => {
@@ -155,6 +215,14 @@ namespace DestinyOS
 
             RegisterCommand("stscr", "Displays the startup screen", "stscr", "stscr", (args) => {
                 Console.ForegroundColor = SystemColor;
+                Console.WriteLine("  _____            _   _              ____   _____ ");
+                Console.WriteLine(" |  __ \\          | | (_)            / __ \\ / ____|");
+                Console.WriteLine(" | |  | | ___  ___| |_ _ _ __  _   _| |  | | (___  ");
+                Console.WriteLine(" | |  | |/ _ \\/ __| __| | '_ \\| | | | |  | |\\___ \\");
+                Console.WriteLine(" | |__| |  __/\\__ \\ |_| | | | | |_| | |__| |____) |");
+                Console.WriteLine(" |_____/ \\___||___/\\__|_|_| |_|\\__, |\\____/|_____/ ");
+                Console.WriteLine("                                __/ |              ");
+                Console.WriteLine("                               |___/               ");
                 Console.WriteLine($"Welcome to DestinyOS! V{VeRsii.vere}");
                 Console.WriteLine("Type help and press enter for help!");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -363,6 +431,8 @@ namespace DestinyOS
                 Console.WriteLine("raminf - Gets info about the RAM");
                 Console.WriteLine("concol - Sets console color (can also run concol <color>)");
                 Console.WriteLine("&& - Run two or more commands at once eg. stscr && cpuinf");
+                Console.WriteLine("wow - Words Of Wisdom");
+                Console.WriteLine("echo - Repeats the text input");
                 Console.ForegroundColor = ConsoleColor.White;
                 return "";
             }
