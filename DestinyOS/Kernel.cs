@@ -16,9 +16,30 @@ namespace DestinyOS
         }
         public static ConsoleColor SystemColor;
 
+        private static Dictionary<string, CommandDefinition> CommandDefinitions = new Dictionary<string, CommandDefinition>();
+
+        public class CommandDefinition
+        {
+            public string Name { get; set; }
+            public string Description { get; set; }
+            public string Syntax { get; set; }
+            public string Example { get; set; }
+            public Action<string> Execute { get; set; }
+
+            public CommandDefinition(string name, string description, string syntax, string example, Action<string> execute)
+            {
+                Name = name;
+                Description = description;
+                Syntax = syntax;
+                Example = example;
+                Execute = execute;
+            }
+        }
+
         protected override void BeforeRun()
         {
             SystemColor = ParseColor(VeRsii.col);
+            InitializeCommands();
 
             string vers = VeRsii.vere;
             Console.Clear();
@@ -28,24 +49,17 @@ namespace DestinyOS
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        protected override void Run()
+        private void InitializeCommands()
         {
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write("home:/");
-            Console.ForegroundColor = ConsoleColor.White;
-            var input = Console.ReadLine();
-
-            if (string.IsNullOrEmpty(input))
-            {
-                return;
-            }
-
-            if (input == "clear" || input == "clr")
-            {
+            RegisterCommand("clear", "Clears the console", "clear or clr", "clear", (args) => {
                 Console.Clear();
-            }
-            else if (input == "test")
-            {
+            });
+
+            RegisterCommand("clr", "Clears the console (alias)", "clr", "clr", (args) => {
+                Console.Clear();
+            });
+
+            RegisterCommand("test", "Tests system functionality and beep", "test", "test", (args) => {
                 Console.ForegroundColor = SystemColor;
                 Console.WriteLine("This is a test!");
 
@@ -63,32 +77,32 @@ namespace DestinyOS
                 Console.ForegroundColor = SystemColor;
                 Console.WriteLine("Only works on Windows drivers");
                 Console.ForegroundColor = ConsoleColor.White;
-            }
-            else if (input == "help")
-            {
+            });
+
+            RegisterCommand("help", "Shows this help menu", "help", "help", (args) => {
                 VeRsii.page = 1;
-                SHowhelp(VeRsii.page);
-            }
-            else if (input == "next")
-            {
+                ShowHelp(VeRsii.page);
+            });
+
+            RegisterCommand("next", "Shows next page of help", "next", "next", (args) => {
                 VeRsii.page++;
-                SHowhelp(VeRsii.page);
-            }
-            else if (input == "prev")
-            {
+                ShowHelp(VeRsii.page);
+            });
+
+            RegisterCommand("prev", "Shows previous page of help", "prev", "prev", (args) => {
                 VeRsii.page--;
-                SHowhelp(VeRsii.page);
-            }
-            else if (input == "shutdown")
-            {
+                ShowHelp(VeRsii.page);
+            });
+
+            RegisterCommand("shutdown", "Shuts down the system", "shutdown", "shutdown", (args) => {
                 Cosmos.System.Power.Shutdown();
-            }
-            else if (input == "reboot")
-            {
+            });
+
+            RegisterCommand("reboot", "Reboots the system", "reboot", "reboot", (args) => {
                 Cosmos.System.Power.Reboot();
-            }
-            else if (input == "cpuinf")
-            {
+            });
+
+            RegisterCommand("cpuinf", "Displays CPU information", "cpuinf", "cpuinf", (args) => {
                 Console.ForegroundColor = SystemColor;
                 string vendorr = Cosmos.Core.CPU.GetCPUVendorName();
                 string bradns = Cosmos.Core.CPU.GetCPUBrandString();
@@ -105,16 +119,16 @@ namespace DestinyOS
                 Console.WriteLine("CPU Brand:  " + bradns);
                 Console.WriteLine("CPU Speed:  " + speedDisplay);
                 Console.ForegroundColor = ConsoleColor.White;
-            }
-            else if (input == "raminf")
-            {
+            });
+
+            RegisterCommand("raminf", "Displays RAM information", "raminf", "raminf", (args) => {
                 Console.ForegroundColor = SystemColor;
                 uint amount = Cosmos.Core.CPU.GetAmountOfRAM();
                 Console.WriteLine("RAM Amount (in MB): " + (amount + 2).ToString());
                 Console.ForegroundColor = ConsoleColor.White;
-            }
-            else if (input == "tune")
-            {
+            });
+
+            RegisterCommand("tune", "Plays a cool tune", "tune", "tune", (args) => {
                 Console.ForegroundColor = SystemColor;
                 Console.WriteLine("Playing tune...");
 
@@ -137,33 +151,25 @@ namespace DestinyOS
                 }
 
                 Console.ForegroundColor = ConsoleColor.White;
-            }
-            else if (input == "stscr")
-            {
+            });
+
+            RegisterCommand("stscr", "Displays the startup screen", "stscr", "stscr", (args) => {
                 Console.ForegroundColor = SystemColor;
                 Console.WriteLine($"Welcome to DestinyOS! V{VeRsii.vere}");
                 Console.WriteLine("Type help and press enter for help!");
                 Console.ForegroundColor = ConsoleColor.White;
-            }
-            else if (input == "concol")
-            {
-                Console.ForegroundColor = SystemColor;
-                Console.Write("Enter color name: ");
-                Console.ForegroundColor = ConsoleColor.White;
+            });
 
-                string colo = Console.ReadLine();
-
-                Console.ForegroundColor = SystemColor;
-
-                if (!string.IsNullOrEmpty(colo))
+            RegisterCommand("concol", "Changes console color", "concol [color] or concol", "concol green", (args) => {
+                if (!string.IsNullOrEmpty(args))
                 {
-                    ConsoleColor newColor = ParseColor(colo);
+                    ConsoleColor newColor = ParseColor(args);
 
-                    if (colo.ToLower().Trim() == "white" || newColor != ConsoleColor.White ||
-                        (colo.ToLower().Trim() != "white" && ParseColor(colo) != ConsoleColor.White))
+                    if (newColor != ConsoleColor.White || args.ToLower().Trim() == "white")
                     {
                         SystemColor = newColor;
-                        Console.WriteLine($"System color changed to {colo}!");
+                        Console.ForegroundColor = SystemColor;
+                        Console.WriteLine($"System color changed to {args}!");
                     }
                     else
                     {
@@ -173,11 +179,113 @@ namespace DestinyOS
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("No color entered!");
+                    Console.ForegroundColor = SystemColor;
+                    Console.Write("Enter color name: ");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    string colo = Console.ReadLine();
+
+                    Console.ForegroundColor = SystemColor;
+
+                    if (!string.IsNullOrEmpty(colo))
+                    {
+                        ConsoleColor newColor = ParseColor(colo);
+
+                        if (newColor != ConsoleColor.White || colo.ToLower().Trim() == "white")
+                        {
+                            SystemColor = newColor;
+                            Console.WriteLine($"System color changed to {colo}!");
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Invalid color name! Try: Black, Blue, Green, Red, Yellow, White, etc.");
+                        }
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("No color entered!");
+                    }
                 }
 
                 Console.ForegroundColor = ConsoleColor.White;
+            });
+
+            RegisterCommand("helpc", "Shows detailed help for a specific command", "helpc <command>", "helpc clear", (args) => {
+                if (string.IsNullOrEmpty(args))
+                {
+                    Console.ForegroundColor = SystemColor;
+                    Console.WriteLine("Usage: helpc <command>");
+                    Console.WriteLine("Example: helpc clear");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    return;
+                }
+
+                string cmdName = args.ToLower().Trim();
+                if (CommandDefinitions.ContainsKey(cmdName))
+                {
+                    var cmd = CommandDefinitions[cmdName];
+                    Console.ForegroundColor = SystemColor;
+                    Console.WriteLine($"=== Command: {cmd.Name} ===");
+                    Console.WriteLine($"Description: {cmd.Description}");
+                    Console.WriteLine($"Syntax: {cmd.Syntax}");
+                    Console.WriteLine($"Example: {cmd.Example}");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Command '{args}' not found!");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+            });
+        }
+
+        private void RegisterCommand(string name, string description, string syntax, string example, Action<string> execute)
+        {
+            CommandDefinitions[name.ToLower()] = new CommandDefinition(name, description, syntax, example, execute);
+        }
+
+        protected override void Run()
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write("home:/");
+            Console.ForegroundColor = ConsoleColor.White;
+            var input = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(input))
+            {
+                return;
+            }
+
+            if (input.Contains("&&"))
+            {
+                string[] commands = input.Split(new string[] { "&&" }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string cmd in commands)
+                {
+                    string trimmedCmd = cmd.Trim();
+                    if (!string.IsNullOrEmpty(trimmedCmd))
+                    {
+                        ExecuteCommand(trimmedCmd);
+                    }
+                }
+            }
+            else
+            {
+                ExecuteCommand(input);
+            }
+        }
+
+        private void ExecuteCommand(string input)
+        {
+            string[] parts = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            string command = parts[0].ToLower();
+            string arguments = parts.Length > 1 ? string.Join(" ", parts, 1, parts.Length - 1) : "";
+
+            if (CommandDefinitions.ContainsKey(command))
+            {
+                CommandDefinitions[command].Execute(arguments);
             }
             else
             {
@@ -218,14 +326,16 @@ namespace DestinyOS
             }
         }
 
-        public static string SHowhelp(int page)
+        public static string ShowHelp(int page)
         {
             Console.ForegroundColor = SystemColor;
             string vers = VeRsii.vere;
+
             if (page == 1)
             {
                 Console.WriteLine($"Help for DestinyOS V{vers}");
                 Console.WriteLine("Page 1");
+                Console.WriteLine("helpc - Get help on a certain command (can run helpc <command>)");
                 Console.WriteLine("test - TEST (try beep)");
                 Console.WriteLine("clear or clr - Clears console");
                 Console.WriteLine("help - This page");
@@ -251,7 +361,8 @@ namespace DestinyOS
                 Console.WriteLine($"Help for DestinyOS V{vers}");
                 Console.WriteLine("Page 3");
                 Console.WriteLine("raminf - Gets info about the RAM");
-                Console.WriteLine("concol - Sets console color");
+                Console.WriteLine("concol - Sets console color (can also run concol <color>)");
+                Console.WriteLine("&& - Run two or more commands at once eg. stscr && cpuinf");
                 Console.ForegroundColor = ConsoleColor.White;
                 return "";
             }
