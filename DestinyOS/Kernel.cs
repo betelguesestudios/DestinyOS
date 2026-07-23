@@ -11,7 +11,7 @@ namespace DestinyOS
         public class VeRsii
         {
             public static int page = 1;
-            public const string vere = "0.6";
+            public const string vere = "0.7";
             public const string col = "Green";
         }
         public static ConsoleColor SystemColor;
@@ -66,13 +66,31 @@ namespace DestinyOS
             RegisterCommand("clr", "Clears the console", "clear or clr", "clr", (args) => {
                 Console.Clear();
             });
+            RegisterCommand("about", "Shows info about DestinyOS", "about", "about", (arg) =>
+            {
+                string vers = VeRsii.vere;
+                Console.WriteLine("DestinyOS");
+                Console.WriteLine("Created by LazerKat");
+                Console.WriteLine("Built on the CosmosOS kernal");
+                Console.WriteLine($"Version {vers}");
+                Console.WriteLine("Please check out my GitHub at betelguesestudios :)");
+                Console.WriteLine("Made during Stardance");
+                Console.WriteLine("There are easter eggs!");
+            });
+            RegisterCommand("hectarelitre", "hectarelitre", "hectarelitre", "hectarelitre", (arg) =>
+            {
+                Console.WriteLine("hectarelitre");
+                Console.WriteLine("austin");
+                Console.WriteLine(arg);
+                Console.WriteLine("potential?");
+            });
             RegisterCommand("echo", "Repeats anything you put after it", "echo <text>", "echo hi!", (arg) =>
             {
                 Console.WriteLine(arg);
             });
             RegisterCommand("wow", "Gives inspirational quotes", "wow", "wow", (args) => {
                 Random rnd = new Random();
-                int randomNumber = rnd.Next(10);
+                int randomNumber = rnd.Next(11);
                 if (randomNumber == 0)
                 {
                     Console.WriteLine("The only impossible journey is the one you never begin. - Tony Robbins");
@@ -112,6 +130,10 @@ namespace DestinyOS
                 else if (randomNumber == 9)
                 {
                     Console.WriteLine("Change your life today. Don't gamble on the future, act now, without delay. - Simone de Beauvoir");
+                }
+                else if (randomNumber == 10)
+                {
+                    Console.WriteLine("egghead is sigma - LazerKat");
                 }
                 else
                 {
@@ -408,7 +430,6 @@ namespace DestinyOS
                 Console.WriteLine("clear or clr - Clears console");
                 Console.WriteLine("help - This page");
                 Console.WriteLine("next - Next page of commands");
-                Console.WriteLine("prev - Previous page of commands");
                 Console.ForegroundColor = ConsoleColor.White;
                 return "";
             }
@@ -416,11 +437,11 @@ namespace DestinyOS
             {
                 Console.WriteLine($"Help for DestinyOS V{vers}");
                 Console.WriteLine("Page 2");
+                Console.WriteLine("prev - Previous page of commands");
                 Console.WriteLine("shutdown - Shuts down the system");
                 Console.WriteLine("reboot - Reboots the system");
                 Console.WriteLine("cpuinf - Gets info about the CPU");
                 Console.WriteLine("tune - A tune to test speakers! (may not work)");
-                Console.WriteLine("stscr - Displays the screen that appears on boot");
                 Console.ForegroundColor = ConsoleColor.White;
                 return "";
             }
@@ -428,10 +449,19 @@ namespace DestinyOS
             {
                 Console.WriteLine($"Help for DestinyOS V{vers}");
                 Console.WriteLine("Page 3");
+                Console.WriteLine("stscr - Displays the screen that appears on boot");
                 Console.WriteLine("raminf - Gets info about the RAM");
                 Console.WriteLine("concol - Sets console color (can also run concol <color>)");
                 Console.WriteLine("&& - Run two or more commands at once eg. stscr && cpuinf");
                 Console.WriteLine("wow - Words Of Wisdom");
+                
+                Console.ForegroundColor = ConsoleColor.White;
+                return "";
+            }
+            else if (page == 4)
+            {
+                Console.WriteLine($"Help for DestinyOS V{vers}");
+                Console.WriteLine("Page 4");
                 Console.WriteLine("echo - Repeats the text input");
                 Console.ForegroundColor = ConsoleColor.White;
                 return "";
