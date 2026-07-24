@@ -84,6 +84,7 @@ namespace DestinyOS
                 Console.WriteLine(arg);
                 Console.WriteLine("potential?");
             });
+            
             RegisterCommand("echo", "Repeats anything you put after it", "echo <text>", "echo hi!", (arg) =>
             {
                 Console.WriteLine(arg);
